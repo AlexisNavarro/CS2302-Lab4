@@ -8,7 +8,7 @@ Lab #4
 Purpose:The purpose of this lab is to be able to work with b-tree and understand how they work and to be able to 
         manipulate them
 """
-
+#Given Code
 class BTree(object):
     # Constructor
     def __init__(self,item=[],child=[],isLeaf=True,max_items=5):  
@@ -85,7 +85,7 @@ def PrintD(T,space):
             PrintD(T.child[i],space+'   ')
     
 
-        
+#My written code        
 #------------------------------------------------------------------------------
 #Question 1  
 #Find the height of a Tree by using recursion 
