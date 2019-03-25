@@ -212,12 +212,14 @@ for i in L:
     Insert(T,i)
     PrintD(T,'') 
     print('\n####################################')
-          
+#T2 is for testing purposes, which is empty          
 L2=[]
 T2= BTree()
 
 for k in L2:
     Insert(T2,k)
+
+#E is an empty list
 E=[]          
 
 print('The height is ',height(T))#1
