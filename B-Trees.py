@@ -101,7 +101,7 @@ def height(T):
 def BT_ToList(T,L):
     if T.isLeaf: 
         for i in range(len(T.item)):#This is done by using for loops to traverse the elements that are in that depth
-            L.append(i)#appends the elements of the tree to the list
+            L.append(T.item[i])#appends the elements of the tree to the list
     else:
         for i in range(len(T.item)):
              BT_ToList(T.child[i], L)#Recursive call to traverse the left side of the b-tree
