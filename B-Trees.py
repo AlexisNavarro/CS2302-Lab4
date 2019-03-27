@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Mar 11 12:58:39 2019
-
 @author: Alexis Navarro
 CS 2302
 Lab #4
@@ -115,6 +114,9 @@ def BT_ToList(T,L):
 #Question 3
 #Finds the minimum element in the b-tree
 def minElem(T,d):
+    h=height(T)
+    if d>h:
+        return -1
     if d==0:
         return T.item[0]
     return minElem(T.child[0],d-1)#Recursive call to traverse the left side of the b-tree since we want the minimum element
@@ -125,6 +127,9 @@ def minElem(T,d):
 #Question 4
 #Finds the maximum element in the b-tree
 def maxElem(T,d):
+    h=height(T)
+    if d>h:
+        return -1
     if d==0:
         return T.item[-1]
     return maxElem(T.child[-1],d-1)#Recursive call to traverse the right side of the b-tree since we want the maximum element
@@ -141,8 +146,6 @@ def numOfNodes(T,d):
         return -1
     if d == 0:
       return len(T.item)
-    if T.isLeaf:
-        return 0
     else:
         for i in range(len(T.item)):
            count+=numOfNodes(T.child[i],d-1)#Recustive call where the method traverses the tree,but still adds the count value of nodes
@@ -153,6 +156,9 @@ def numOfNodes(T,d):
 #Question 6       
 #prints all the elements at a certain depth in the b-tree 
 def print_AtDepth(T,d):
+    h=height(T)
+    if d>h:
+        print(None)
     if d == 0:
         for i in range(len(T.item)):
             print(T.item[i],end=' ') #prints all the elements in that certain depth
@@ -206,7 +212,7 @@ def depthOfNode(T,k):
 #------------------------------------------------------------------------------
 
 
-L = [30, 50, 10, 20, 60, 70, 100, 40, 90, 80, 110, 120, 1, 11 , 3, 4, 5,105, 115, 200, 2, 45, 6,1,1,1,4,4,4,4,4]
+L = [30, 50, 10, 20, 60, 70, 100, 40, 90, 80, 110,10,10,10,10,10,10]
 T = BTree()    
 for i in L:
     Insert(T,i)
@@ -225,10 +231,10 @@ E=[]
 print('The height is ',height(T))#1
 print('Tree to List',  BT_ToList(T,E))#2
 print('the minimum element is ',minElem(T,1))#3
-print('the maximum element is ',maxElem(T,0))#4
+print('the maximum element is ',maxElem(T,1))#4
 print('The number of Nodes are:', numOfNodes(T,1))#5
 print('Elements at depth are: ')
-print_AtDepth(T,0)#6
+print_AtDepth(T,1)#6
 print()
 print('The number of full Nodes are: ', numOf_FullNodes(T))#7
 print('The number of full Leaves are: ', numOf_FullLeaves(T))#8
